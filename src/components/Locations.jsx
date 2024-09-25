@@ -88,7 +88,7 @@ const Locations = () => {
           <Sticky
             top={10}
             // bottomBoundary={containerRef.current?.getBoundingClientRect().height + window.scrollY} // Stop at container's bottom
-            bottomBoundary={8080}
+            bottomBoundary={8120}
             className="w-full"
           >
             <div className="w-full h-[98vh] bg-white rounded-xl shadow-lg z-10 flex flex-col items-start justify-between gap-6 p-8">
