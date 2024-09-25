@@ -65,13 +65,13 @@ const Locations = () => {
 
   return (
     <div className="w-full h-auto" ref={containerRef}>
-      <div className="w-full flex h-full relative items-start p-5 gap-6">
+      <div className="w-full flex-row-reverse flex h-full relative items-start p-5 gap-6">
         {/* Left Image Section */}
         <div className="w-2/3 h-full">
           {images.map((image, index) => (
             <div
               key={image.id}
-              className="h-[98vh] mb-6"
+              className="h-[98vh] mb-6 sticky transition-all top-0 py-5"
               data-index={index}
               ref={(el) => (imageRefs.current[index] = el)} 
             >
