@@ -35,28 +35,27 @@ const Locations = () => {
     },
   ];
 
-  const [activeImage, setActiveImage] = useState(0); // Track active image index
-  const imageRefs = useRef([]); // Store refs to each image
+  const [activeImage, setActiveImage] = useState(0); 
+  const imageRefs = useRef([]); 
+  const containerRef = useRef(null); 
 
-  // Use IntersectionObserver to track which image is currently visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.dataset.index, 10);
-            setActiveImage(index); // Update the active image when it comes into view
+            setActiveImage(index); 
           }
         });
       },
-      { threshold: 0.7 } // Adjust threshold to when 70% of the image is visible
+      { threshold: 0.7 } 
     );
 
     imageRefs.current.forEach((img) => {
       if (img) observer.observe(img);
     });
 
-    // Cleanup observer on component unmount
     return () => {
       imageRefs.current.forEach((img) => {
         if (img) observer.unobserve(img);
@@ -65,7 +64,7 @@ const Locations = () => {
   }, []);
 
   return (
-    <div className="w-full h-[500vh]">
+    <div className="w-full h-auto" ref={containerRef}>
       <div className="w-full flex h-full relative items-start p-5 gap-6">
         {/* Left Image Section */}
         <div className="w-2/3 h-full">
@@ -85,9 +84,13 @@ const Locations = () => {
           ))}
         </div>
 
-        {/* Right Sticky Section */}
         <div className="w-1/3 py-5">
-          <Sticky top={10} className="w-full">
+          <Sticky
+            top={10}
+            // bottomBoundary={containerRef.current?.getBoundingClientRect().height + window.scrollY} // Stop at container's bottom
+            bottomBoundary={8080}
+            className="w-full"
+          >
             <div className="w-full h-[98vh] bg-white rounded-xl shadow-lg z-10 flex flex-col items-start justify-between gap-6 p-8">
               <div className="flex flex-col items-start">
                 <h1 className="text-4xl font-bold text-gray-800">
@@ -112,8 +115,8 @@ const Locations = () => {
                 {images.map((image, index) => (
                   <h1
                     key={image.id}
-                    className={`text-md whitespace-nowrap text-gray-700 ${
-                      activeImage === index ? "font-bold text-gray-900" : ""
+                    className={`text-md whitespace-nowrap transition-all text-gray-700 ${
+                      activeImage === index ? "font-bold transition-all text-gray-900" : ""
                     }`}
                   >
                     {index + 1}. {image.heading}

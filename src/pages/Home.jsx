@@ -18,9 +18,9 @@ const Home = () => {
         <TextRevealByWord text="2000 Happy Customers who trusted us." />
       </div>
       <Locations />
-      {/* <div className="z-10 flex items-center justify-center ">
+      <div className="z-10 flex items-center justify-center ">
         <TextRevealByWord text="2000 Happy Customers who trusted us." />
-      </div> */}
+      </div>
     </>
   );
 };
