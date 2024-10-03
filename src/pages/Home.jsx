@@ -4,6 +4,8 @@ import HeroSection from "../components/HeroSection";
 import TextRevealByWord from "../components/TextRevealByWord";
 import ThreeImages from "../components/ThreeImages";
 import Locations from "../components/Locations";
+import Carousel from "../components/Carousel";
+import Groups from "../components/Groups";
 
 const Home = () => {
   return (
@@ -21,6 +23,8 @@ const Home = () => {
       <div className="z-10 flex items-center justify-center ">
         <TextRevealByWord text="2000 Happy Customers who trusted us." />
       </div>
+      <Carousel />
+      <Groups />
     </>
   );
 };

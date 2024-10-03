@@ -5,7 +5,7 @@ const Locations = () => {
   const images = [
     {
       id: 1,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s",
+      src: "https://s3-alpha-sig.figma.com/img/ce6e/003e/e8c47a2329a504158ee3db438e396c6c?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dx8s7a6vzVyTsnzk1qN1zo3aSlNdeQL6wpoqkexaMAOYKAUxb62hxk1RX-LdEq2L0eru2kNtXHdn-ATecUPrYxJcYls3xn7EWdFKQiEwVWE3V8KYPUOdL75KlZfwYbPR0QG4f~QfyYjn~8Y84f-lzQUY8f0JEQosaYI4pDSZ1QQcjgx-Xp4qWgY3A2z38~CoWuHw-Otzj1zTTlJeiQ5M8Rah5-5uBHNhO01Jrexp4~WuvfGmOcWSJkYhuaa606wT4MXV2n1naxh8khtJcOUx6AXyP3ZoMC6vhTF-u4yCCyR20Cs9ri2ZuaOerhiPj1t-NkwLeZYIThBHO416nHjfNw__",
       heading: "Nilgiri",
       description: "Beautiful Nilgiri Mountains",
     },
@@ -71,7 +71,7 @@ const Locations = () => {
           {images.map((image, index) => (
             <div
               key={image.id}
-              className="h-[98vh] mb-6 sticky transition-all top-0 py-5"
+              className="h-[98vh] sticky transition-all top-0 pt-2.5"
               data-index={index}
               ref={(el) => (imageRefs.current[index] = el)} 
             >
@@ -88,7 +88,7 @@ const Locations = () => {
           <Sticky
             top={10}
             // bottomBoundary={containerRef.current?.getBoundingClientRect().height + window.scrollY} // Stop at container's bottom
-            bottomBoundary={8130}
+            bottomBoundary={8060}
             className="w-full"
           >
             <div className="w-full h-[98vh] bg-white rounded-xl shadow-lg z-10 flex flex-col items-start justify-between gap-6 p-8">
